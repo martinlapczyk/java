@@ -1,0 +1,206 @@
+//Prob1
+import java.util.Scanner;
+public class Exercise1{
+	
+		public static double balance(double balance){
+			System.out.println("Your account balance is $"+balance);
+			return balance;
+		}
+		public static double deposit(double balance){
+			System.out.println("Enter how much you wish to deposit");
+			Scanner input=new Scanner(System.in);
+			double deposit=input.nextDouble();
+			if(deposit>=0.0){
+				balance=balance+deposit;
+				return balance;
+				
+			}else{
+				System.out.println("Incorrect Amount!");
+				return 0.0;
+			}
+		}
+		public static double withdraw(double a){
+			System.out.println("Enter how much you wish to withdraw");
+			Scanner input=new Scanner(System.in);
+			double withdraw=input.nextDouble();
+			if(withdraw>=0&&withdraw<a){
+				a=a-withdraw;
+				System.out.println("Your balance is:" +a);
+				return a;
+			}else if(withdraw<0){
+				System.out.println("Incorrect Amount!");
+				return 0.0;
+			}else{
+				System.out.println("Sorry, you don't have sufficient balance!");
+				return 0.0;
+			}
+		}
+		 public static void exit(){
+			System.out.println("Goodbye!");
+			System.exit(0);
+		}
+		public static void main(String[] args){
+			Scanner input=new Scanner(System.in);
+			boolean check=true;
+			double balance = 100.00;
+			do{
+				System.out.println("1. Account Balance");
+				System.out.println("2. Deposit");
+				System.out.println("3. Withdraw");
+				System.out.println("4. Exit");
+				System.out.println("Enter your selection:");
+				int unum=input.nextInt();
+				switch(unum){
+					case 1:
+						balance(balance);
+						break;
+					case 2:
+						balance = deposit(balance);
+						break;
+					case 3:
+						balance=withdraw(balance);
+						break;
+					case 4:
+						exit();
+						break;
+					}
+				}while(check==true);
+		}
+	}
+//Prob2
+import java.util.Scanner;
+public class Exercise2{
+	public static void main(String [] args){
+		Scanner input= new Scanner(System.in);
+		System.out.println("Enter string");
+		String word = input.nextLine();
+		String palindrome="";
+		for(int i=word.length()-1; i>=0;i--){
+			palindrome=palindrome+word.charAt(i);
+		}
+		System.out.println(palindrome);	
+
+		
+	}
+}
+//Prob3
+import java.util.Scanner;
+public class Exercise3{
+	public static void main(String[] args){
+		Scanner input= new Scanner(System.in);
+		System.out.println("Word please");
+		String word = input.nextLine();
+		checker(word);
+	}
+	public static void checker(String a){
+		int rev=a.length()-1;
+		for(int i=0;i<a.length();i++){
+			if(a.charAt(i)==a.charAt(rev)){
+				rev=rev-1;
+			}else{
+				System.out.println("Not a palindrome");
+				System.exit(1);
+			}
+		}
+		System.out.println("This is a palindrome");
+	
+			}
+		}
+//Prob4
+import java.util.Scanner;
+public class Exercise4{
+	public static void main(String [] arg){
+		Scanner input=new Scanner(System.in);
+		System.out.println("Enter number");
+		int number= input.nextInt();
+		String output=Integer.toBinaryString(number);
+		System.out.println(output);
+	}
+}
+//Prob5
+import java.util.Scanner;
+import java.util.Random;
+public class Exercise5{
+	public static void main(String[] args){
+		Scanner input=new Scanner(System.in);
+		System.out.println("Please select 1 for numbers, 2 for characters");
+		int unum = input.nextInt();
+		switch(unum){
+			case 1:
+				System.out.println("Please input 2 numbers");
+				int inp1=input.nextInt();
+				int inp2=input.nextInt();
+				int temp=Gen(inp1,inp2);
+				System.out.println("Your number is:"+temp);
+				System.exit(1);
+				
+
+			case 2:
+				System.out.println("Please input 2 characters");
+				char inp1c=input.next().charAt(0);
+				char inp2c=input.next().charAt(0);
+				char tempc=Gen(inp1c,inp2c);
+				System.out.println("Your char is:" +tempc);
+				System.exit(1);
+		}
+		}
+	public static int Gen(int a, int b){
+		int randomNum=a+(int)(Math.random()*(b+1));
+		return randomNum;
+		}
+	public static char Gen(char lett1, char lett2){
+		Random r=new Random();
+		String alphabet = "abcdefghijklmnopqrstuvwxyz";
+		int numb=alphabet.indexOf(lett2);
+		char randomChar= (char)(r.nextInt(numb+1)+lett1);
+		return randomChar;
+		}
+	}
+//Prob6
+public class Exercise6{
+	public static void main(String[] arg){
+		int ctr=0;
+		for(int i=65; i<=126;i++){
+			System.out.print((char)i);
+			ctr+=1;
+			if(ctr==5){
+				System.out.println((char)(i+1));
+				ctr=0;
+			}
+		}
+	}
+}
+//Prob7
+import java.util.Scanner;
+public class Exercise7{
+	public static void main(String[] arg){
+		Scanner input=new Scanner(System.in);
+		System.out.println("Input word");
+		String temp="";
+		boolean check=false;
+		String shortest="";
+		String word1=input.nextLine();
+		System.out.println("Input word");
+		String word2=input.nextLine();
+		if(word1.length()>word2.length()){
+			shortest=word2;
+		}else{
+			shortest=word1;
+		}
+		
+		for(int i=0; i<shortest.length();i++){
+			if (word1.charAt(i)==word2.charAt(i)){
+				temp=temp+shortest.charAt(i);
+				check=true;
+		    }else{
+				temp=word1.substring(0,i);
+				break;
+			}
+		}
+		if(check==true){
+			System.out.println("The prefix is:"+temp);
+		}else{
+			System.out.println(word1+" and "+ word2+" have no prefix");
+		}
+			}
+		}
