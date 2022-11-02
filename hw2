@@ -1,0 +1,202 @@
+//Prob1
+import java.util.Scanner;
+public class Problem1{
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter password");
+		String upword=input.nextLine();
+		if (upword.equals("NYU42day")){
+			System.out.println("Valid Password");
+		}else{
+			System.out.println("Invalid Password");
+		}
+
+	}
+}
+//Prob2
+import java.util.Scanner;
+public class Problem2{
+	public static void main(String[] args){
+		Scanner input= new Scanner(System.in);
+		System.out.println("Enter number");
+		int num1= input.nextInt();
+		System.out.println("Enter number");
+		int num2= input.nextInt();
+		System.out.println(Math.max(num1,num2));
+
+	}
+}
+//Prob3
+import java.util.Scanner;
+public class Prob3{
+	public static void main(String[] args){
+		Scanner input= new Scanner(System.in);
+		while(true){
+		System.out.println("Enter 'a' to randomly generate a letter between a-z, or input 'A' to randomly generate a letter between A-Z");
+		String inp=input.nextLine();
+		if (inp.equals("a")){
+			String alph="abcdefghijklmnopqrstuvwxyz";
+			char letter = alph.charAt(0+(int)(Math.random()*26));
+			System.out.println(letter);
+	    }else if(inp.equals("A")){
+	    	String alph= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	    	char letter = alph.charAt(0+(int)(Math.random()*26));
+	    	System.out.println(letter);
+	    }else{
+	    System.out.println("Invalid entry, please try again");
+	    }
+	    }
+		}
+	}
+
+//Prob4
+import java.util.Scanner;
+public class Prob4{
+	public static void main(String[] args){
+	Scanner input=new Scanner(System.in);
+	System.out.println("Enter your grade");
+	int grade = input.nextInt();
+	if (grade>=93){
+		System.out.println("You entered "+grade+", your letter grade is A");
+	}else if(92>=grade&&grade>=90){
+		System.out.println("You entered "+grade+", your letter grade is A-");
+	}else if(89>=grade&&grade>=88){
+		System.out.println("You entered "+grade+", your letter grade is B+");
+	}else if(87>=grade&&grade>=84){
+		System.out.println("You entered "+grade+", your letter grade is B");
+	}else if(83>=grade&&grade>=80){
+		System.out.println("You entered "+grade+", your letter grade is B-");
+	}else if(79>=grade&&grade>=78){
+		System.out.println("You entered "+grade+", your letter grade is C+");
+	}else if(77>=grade&&grade>=74){
+		System.out.println("You entered "+grade+", your letter grade is C");
+	}else if(73>=grade&&grade>=70){
+		System.out.println("You entered "+grade+", your letter grade is C-");
+	}else if(69>=grade&&grade>=68){
+		System.out.println("You entered "+grade+", your letter grade is D+");
+	}else if(67>=grade&&grade>=64){
+		System.out.println("You entered "+grade+", your letter grade is D");
+	}else if(63>=grade&&grade>=60){
+		System.out.println("You entered "+grade+", your letter grade is D-");
+	}else if(59>=grade){
+		System.out.println("You entered "+grade+", your letter grade is F");
+	}
+}
+}
+//Prob5
+import java.util.Scanner;
+public class Prob5{
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter month name:");
+		String inp=input.nextLine();
+		String month=inp.toLowerCase();
+		if (month.equals("december")||month.equals("january")||month.equals("february")){
+			System.out.println("Season is: Winter");
+		}
+		else if(month.equals("march")||month.equals("april")||month.equals("may")){
+			System.out.println("Season is: Spring");
+		
+		}else if(month.equals("june")||month.equals("july")||month.equals("august")){
+			System.out.println("Season is: Summer");
+		}else{
+			System.out.println("Season is: Fall");
+		}
+	}
+}
+//Prob6
+import java.util.Scanner;
+public class Problem6{
+	public static void main(String[] args){
+	Scanner input = new Scanner(System.in);
+	System.out.println("Enter password");
+	String pword=input.nextLine();
+	int numb=0;
+	int lett=0;
+	int ctru=0;
+	int ctrl=0;
+	for (int i=0; i<pword.length();i++){
+		boolean notif =Character.isDigit(pword.charAt(i));
+		if (notif==true){
+			numb+=1;
+	   }if(notif==false){
+			lett+=1;
+			if (Character.isUpperCase(pword.charAt(i))==true){
+				ctru++;
+		    }else{
+		    	ctrl++;
+		    }
+			}
+		
+		}
+    System.out.println(ctrl);
+    System.out.println(ctru);
+    System.out.println(lett);
+	if (pword.length()<8){
+		System.out.println("Weak Password");
+		System.exit(0);
+	}else if(((8<pword.length()&&pword.length()<12)||pword.length()==8||pword.length()==12)&&((numb>0&&lett==0)||(numb==0&&lett>0))){
+		System.out.println("Medium Password");
+		System.exit(0);
+	}else if(((8<pword.length()&&pword.length()<12)||pword.length()==8||pword.length()==12)&&((numb>1&&ctrl==0&&ctru>0)||(numb>1&&ctru==0&&ctrl>0))){
+		System.out.println("OK Password");
+		System.exit(0);
+	}else if(((8<pword.length()&&pword.length()<12)||pword.length()==8||pword.length()==12)&&ctru>0&&ctrl>0&&numb>1){
+		System.out.println("Strong Password");
+		System.exit(0);
+	}else if(pword.length()>12){
+		System.out.println("Awesome Password");
+		System.exit(0);
+	}else{
+		System.out.println("Invalid Password");
+	}
+}
+}
+//Prob7
+import java.util.Scanner;
+public class Problem7{
+	public static void main(String[] args){
+		Scanner input= new Scanner(System.in);
+		double balance =0.0;
+		while(true){
+		System.out.println("1. Account Balance");
+		System.out.println("2. Desposit");
+		System.out.println("3. Withdraw");
+		System.out.println("4. Exit");
+		System.out.println("Enter your selection:");
+		int unum=input.nextInt();
+
+		switch(unum){
+		  case 1:
+			System.out.println("Your account balance is "+balance);
+			break;
+		  case 2:
+			System.out.println("Enter how much you wish to deposit");
+			double deposit=input.nextDouble();
+			if(deposit>=0.0){
+				balance+=deposit;
+				break;
+			}else{
+				System.out.println("Incorrect Amount!");
+				break;
+			}
+		  case 3:
+			System.out.println("Enter how much you wish to withdraw");
+			double withdraw=input.nextDouble();
+			if(withdraw>=0&&withdraw<balance){
+				balance-=withdraw;
+			}else if(withdraw<0){
+				System.out.println("Incorrect Amount!");
+				break;
+			}else{
+				System.out.println("Sorry, you don't have sufficient balance!");
+				break;
+			}
+		  case 4:
+			System.out.println("Goodbye!");
+			System.exit(0);
+		}
+	}
+}
+}
+	
