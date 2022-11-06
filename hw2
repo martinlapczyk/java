@@ -1,0 +1,93 @@
+//Problem 1
+import java.util.Scanner;
+public class Prob1{
+
+	public static void main(String args[]){
+		
+		Scanner num1 = new Scanner(System.in);
+		System.out.println("Enter x");
+		double x=num1.nextInt();
+		System.out.println("Enter y");
+		double y = num1.nextInt();
+		double ans=((3+(4*x))/5)-((10*(y-5))/x)+(9*((4/x)+((9+x)/y)));
+		System.out.println(ans);
+	}
+}
+
+//Problem 2
+public class Prob2{
+	
+		public static void main(String args[]){
+			int num1=20;
+			int num2=3;
+			float num3=14.6f;
+			String word="Hello 101";
+			System.out.println("Num 1:"+num1);
+			System.out.println("Num 2:" + num2);
+			System.out.println("Num 3:"+ num3);
+			System.out.println("Word:"+ word);
+		}
+}
+//Problem 3
+import java.util.Scanner;
+public class Prob3{
+	
+	public static void main(String args[]){
+		System.out.println("Enter 1 for dollar to euro conversion, 2 for euro to dollar conversion");
+		Scanner input=new Scanner(System.in);
+		int opt=input.nextInt();
+		if (opt==1){
+			System.out.println("Input dollars");
+			int dollars= input.nextInt();
+			double euro=dollars*0.9;
+			System.out.println("You entered "+dollars+" dollars and now you have " +euro+" euros");
+		}else if(opt==2){
+			System.out.println("Input euros");
+			int euro= input.nextInt();
+			double dollar=euro*1.11;
+			System.out.println("You entered "+euro+" and now you have" +dollar+" dollars");
+		}
+
+		}
+
+
+	}
+//Problem 4
+import java.util.Scanner;
+public class Prob4{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.println("Enter desired grade:");
+		String desg=input.next();
+		System.out.println("Enter minimum average required:");
+		double minavg=input.nextFloat();
+		System.out.println("Enter current average:");
+		double avg=input.nextFloat();
+		System.out.println("Enter how much the final counts as a percentage of the course grade:");
+		double fperc=input.nextFloat();
+		double fperc1=fperc*.01;
+		double sneed=(minavg-(avg*(1-fperc1)))/fperc1;
+		String sneed1=String.format("%1$,.2f",sneed);
+		System.out.println("You need a score of "+sneed1+" to get "+desg);
+	}
+}
+//Problem 5
+import java.util.Scanner;
+public class Prob5{
+	
+		public static void main(String args[]){
+			Scanner input = new Scanner(System.in);
+			double x = input.nextInt();
+			int y = input.nextInt();
+			double sum = x+y;
+			double diff=x-y;
+			double div=x/y;
+			double mult=x*y;
+			double rem=x%y;
+			System.out.println(sum);
+			System.out.println(diff);
+			System.out.println(div);
+			System.out.println(mult);
+			System.out.println(rem);
+		}
+}
