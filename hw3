@@ -16,7 +16,9 @@ public class Exercise1{
 				
 			}else{
 				System.out.println("Incorrect Amount!");
-				return 0.0;
+				deposit=0;
+				balance=balance+deposit;
+				return balance;
 			}
 		}
 		public static double withdraw(double a){
@@ -29,10 +31,14 @@ public class Exercise1{
 				return a;
 			}else if(withdraw<0){
 				System.out.println("Incorrect Amount!");
-				return 0.0;
+				withdraw=0;
+				a=a-withdraw;
+				return a;
 			}else{
-				System.out.println("Sorry, you don't have sufficient balance!");
-				return 0.0;
+				System.out.println("Incorrect Amount!");
+				withdraw=0;
+				a=a-withdraw;
+				return a;
 			}
 		}
 		 public static void exit(){
@@ -84,12 +90,13 @@ public class Exercise2{
 	}
 }
 //Prob3
-import java.util.Scanner;
 public class Exercise3{
 	public static void main(String[] args){
 		Scanner input= new Scanner(System.in);
 		System.out.println("Word please");
 		String word = input.nextLine();
+		word=word.replaceAll("\\s","");
+		word=word.toLowerCase();
 		checker(word);
 	}
 	public static void checker(String a){
@@ -145,7 +152,7 @@ public class Exercise5{
 		}
 		}
 	public static int Gen(int a, int b){
-		int randomNum=a+(int)(Math.random()*(b+1));
+		int randomNum=a+(int)(Math.random()*((b-a)+1));
 		return randomNum;
 		}
 	public static char Gen(char lett1, char lett2){
@@ -180,8 +187,10 @@ public class Exercise7{
 		boolean check=false;
 		String shortest="";
 		String word1=input.nextLine();
+		word1=word1.toLowerCase();
 		System.out.println("Input word");
 		String word2=input.nextLine();
+		word2=word2.toLowerCase();
 		if(word1.length()>word2.length()){
 			shortest=word2;
 		}else{
@@ -204,3 +213,7 @@ public class Exercise7{
 		}
 			}
 		}
+			
+			
+		
+	
